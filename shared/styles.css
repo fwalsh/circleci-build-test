@@ -212,7 +212,7 @@ header .cci-wordmark {
 }
 
 .explainer {
-  max-width: 420px;
+  max-width: 600px;
   text-align: center;
   font-size: 0.8rem;
   color: var(--cci-text-muted);
