@@ -35,3 +35,4 @@ btn.addEventListener('click', async () => {
     btn.textContent = 'Check CircleCI Status';
   }
 });
+/* path-filter verification: project-a only */
