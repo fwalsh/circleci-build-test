@@ -211,6 +211,28 @@ header .cci-wordmark {
   text-decoration: underline;
 }
 
+.explainer {
+  max-width: 420px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--cci-text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.explainer a {
+  color: var(--cci-text-muted);
+  text-decoration: underline;
+}
+
+.explainer code {
+  font-size: 0.75rem;
+  color: var(--cci-green);
+  background: var(--cci-surface);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
 footer {
   margin-top: 3rem;
   font-size: 0.75rem;
