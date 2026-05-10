@@ -2,8 +2,7 @@
 
 A monorepo demo submission for the CircleCI Support Engineer take-home challenge.
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/YaD4tLBMN2kXHnvkmQ2cXB/PLACEHOLDER/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/YaD4tLBMN2kXHnvkmQ2cXB/PLACEHOLDER/tree/main)
-<!-- Replace PLACEHOLDER with the project slug from CircleCI → Project Settings → Status Badges -->
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/YaD4tLBMN2kXHnvkmQ2cXB/CSMqME9zYihUHPHepwW4EH/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/YaD4tLBMN2kXHnvkmQ2cXB/CSMqME9zYihUHPHepwW4EH/tree/main)
 
 ## What this satisfies
 
