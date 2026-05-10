@@ -3,3 +3,4 @@ export async function fetchStatus() {
   if (!res.ok) throw new Error(`Status API returned HTTP ${res.status}`);
   return res.json(); // { page: {...}, status: { description, indicator } }
 }
+/* path-filter verification: shared triggers both */
