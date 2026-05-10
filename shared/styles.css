@@ -1,0 +1,224 @@
+/* CircleCI brand palette */
+:root {
+  --cci-green: #04A77B;
+  --cci-green-light: #05c991;
+  --cci-green-dark: #037a5a;
+  --cci-yellow: #f5a623;
+  --cci-orange: #e07b39;
+  --cci-red: #d0454c;
+  --cci-bg: #0f1117;
+  --cci-surface: #1a1d27;
+  --cci-surface-2: #22263a;
+  --cci-text: #e8eaf0;
+  --cci-text-muted: #8a8fa8;
+  --dot-color: var(--cci-green);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--cci-bg);
+  color: var(--cci-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--cci-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+header .cci-wordmark {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cci-text);
+  margin-top: 0.3rem;
+}
+
+/* ── 3D Status Dot ─────────────────────────────────── */
+.status-dot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.status-dot {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 35%,
+    color-mix(in srgb, var(--dot-color) 80%, white 20%),
+    var(--dot-color) 55%,
+    color-mix(in srgb, var(--dot-color) 60%, black 40%) 100%
+  );
+  box-shadow:
+    0 0 0 0 color-mix(in srgb, var(--dot-color) 40%, transparent),
+    0 8px 32px color-mix(in srgb, var(--dot-color) 30%, transparent),
+    inset 0 -8px 24px color-mix(in srgb, var(--dot-color) 25%, black 75%),
+    inset 0 4px 12px color-mix(in srgb, white 15%, transparent);
+  animation: breathe 3s ease-in-out infinite;
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+  cursor: default;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 8px color-mix(in srgb, var(--dot-color) 12%, transparent),
+      0 8px 32px color-mix(in srgb, var(--dot-color) 30%, transparent),
+      inset 0 -8px 24px color-mix(in srgb, var(--dot-color) 25%, black 75%),
+      inset 0 4px 12px color-mix(in srgb, white 15%, transparent);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 0 18px color-mix(in srgb, var(--dot-color) 6%, transparent),
+      0 12px 48px color-mix(in srgb, var(--dot-color) 45%, transparent),
+      inset 0 -8px 24px color-mix(in srgb, var(--dot-color) 25%, black 75%),
+      inset 0 4px 12px color-mix(in srgb, white 15%, transparent);
+  }
+}
+
+.status-dot.indicator-none   { --dot-color: var(--cci-green); }
+.status-dot.indicator-minor  { --dot-color: var(--cci-yellow); }
+.status-dot.indicator-major  { --dot-color: var(--cci-orange); }
+.status-dot.indicator-critical { --dot-color: var(--cci-red); }
+
+/* ── Button ────────────────────────────────────────── */
+.btn-check {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--cci-green) 0%, var(--cci-green-dark) 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--cci-green) 40%, transparent);
+}
+
+.btn-check:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--cci-green) 50%, transparent);
+}
+
+.btn-check:active {
+  transform: translateY(0);
+}
+
+.btn-check:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Status reveal ─────────────────────────────────── */
+.status-reveal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cci-surface);
+  border: 1px solid var(--cci-surface-2);
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+  max-width: 420px;
+  width: 100%;
+}
+
+.status-reveal.visible {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.status-description {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cci-text);
+}
+
+.status-updated {
+  font-size: 0.8rem;
+  color: var(--cci-text-muted);
+}
+
+.status-error {
+  color: var(--cci-red);
+  font-size: 0.95rem;
+}
+
+/* ── About page ────────────────────────────────────── */
+.about-card {
+  background: var(--cci-surface);
+  border: 1px solid var(--cci-surface-2);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-card h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cci-text);
+  margin-bottom: 1.2rem;
+}
+
+.about-card p {
+  color: var(--cci-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.about-card a {
+  color: var(--cci-green);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-card a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  color: var(--cci-text-muted);
+  text-align: center;
+}
+
+footer a {
+  color: var(--cci-text-muted);
+  text-decoration: underline;
+}

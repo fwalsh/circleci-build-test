@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CircleCI Status</title>
+  <link rel="stylesheet" href="../shared/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="cci-wordmark">CircleCI</div>
+    <h1>System Status</h1>
+  </header>
+
+  <div class="status-dot-wrapper">
+    <div class="status-dot indicator-none" id="status-dot" aria-hidden="true"></div>
+
+    <button
+      class="btn-check"
+      id="check-status-btn"
+      data-testid="check-status-btn"
+      type="button"
+    >
+      Check CircleCI Status
+    </button>
+
+    <div
+      class="status-reveal"
+      id="status-reveal"
+      data-testid="status-reveal"
+      aria-live="polite"
+    >
+      <span class="status-description" id="status-description"></span>
+      <span class="status-updated" id="status-updated"></span>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      Data from
+      <a href="https://status.circleci.com" target="_blank" rel="noopener">
+        status.circleci.com
+      </a>
+      &nbsp;·&nbsp;
+      <a href="../project-b/">About this demo</a>
+    </p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

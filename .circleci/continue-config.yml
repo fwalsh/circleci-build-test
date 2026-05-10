@@ -1,0 +1,75 @@
+version: 2.1
+
+parameters:
+  run-project-a:
+    type: boolean
+    default: false
+  run-project-b:
+    type: boolean
+    default: false
+  run-shared:
+    type: boolean
+    default: false
+
+executors:
+  playwright:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.59.1-jammy
+    working_directory: ~/repo
+
+commands:
+  install-deps:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-deps-v1-{{ checksum "package-lock.json" }}
+      - run: npm ci
+      - save_cache:
+          key: npm-deps-v1-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+
+jobs:
+  test-project-a:
+    executor: playwright
+    steps:
+      - install-deps
+      - run:
+          name: Run Playwright tests for project-a
+          command: npx playwright test e2e/project-a.spec.ts
+      - store_test_results:
+          path: playwright-report
+      - store_artifacts:
+          path: playwright-report
+          destination: playwright-report-project-a
+
+  test-project-b:
+    executor: playwright
+    steps:
+      - install-deps
+      - run:
+          name: Run Playwright tests for project-b
+          command: npx playwright test e2e/project-b.spec.ts
+      - store_test_results:
+          path: playwright-report
+      - store_artifacts:
+          path: playwright-report
+          destination: playwright-report-project-b
+
+workflows:
+  project-a-tests:
+    when:
+      or:
+        - << pipeline.parameters.run-project-a >>
+        - << pipeline.parameters.run-shared >>
+    jobs:
+      - test-project-a
+
+  project-b-tests:
+    when:
+      or:
+        - << pipeline.parameters.run-project-b >>
+        - << pipeline.parameters.run-shared >>
+    jobs:
+      - test-project-b

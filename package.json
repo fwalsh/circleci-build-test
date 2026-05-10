@@ -1,0 +1,14 @@
+{
+  "name": "circleci-build-test",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve -l 3000 .",
+    "test": "npx playwright test",
+    "test:project-a": "npx playwright test e2e/project-a.spec.ts",
+    "test:project-b": "npx playwright test e2e/project-b.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "serve": "^14.2.4"
+  }
+}
