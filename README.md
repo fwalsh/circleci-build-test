@@ -8,7 +8,9 @@ This is built to demonstrate CircleCI's dynamic-config / path-filtering capabili
 
 ## What this satisfies
 
-The "trivial web application with a single page and a button" from the brief is **`project-a/`** — clicking the button reveals live CircleCI status text fetched from `status.circleci.com/api/v2/status.json`
+Part 1 from the brief: *"build a trivial web application with a single page and a button"*.
+
+`project-a/` is that single page. Clicking the button reveals live CircleCI status text fetched from `status.circleci.com/api/v2/status.json`
 
 The required test (`e2e/project-a.spec.ts`) verifies the new text appears on click.
 
