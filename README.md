@@ -1,18 +1,18 @@
 # CircleCI Build & Test — Support Engineer Take-Home
 
-A small demo: click a button, see CircleCI's real system status — fetched live from `status.circleci.com/api/v2/status.json`.
+A small demo: click a button, see CircleCI's real system status — fetched live from `status.circleci.com/api/v2/status.json`
 
-This is built to demonstrate CircleCI's dynamic-config / path-filtering capability and to serve as a working preview of Part 3 of the take-home.
+This is built to demonstrate CircleCI's dynamic-config / path-filtering capability and to serve as a working example for Part 3 of the take-home.
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/YaD4tLBMN2kXHnvkmQ2cXB/CSMqME9zYihUHPHepwW4EH/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/YaD4tLBMN2kXHnvkmQ2cXB/CSMqME9zYihUHPHepwW4EH/tree/main)
 
 ## What this satisfies
 
-The "trivial web application with a single page and a button" from the brief is **`project-a/`** — clicking the button reveals live CircleCI status text fetched from `status.circleci.com/api/v2/status.json`.
+The "trivial web application with a single page and a button" from the brief is **`project-a/`** — clicking the button reveals live CircleCI status text fetched from `status.circleci.com/api/v2/status.json`
 
 The required test (`e2e/project-a.spec.ts`) verifies the new text appears on click.
 
-`project-b/` and the dynamic path-filtering pipeline are **supplementary content** that demonstrates CircleCI's dynamic-config / path-filtering capability — the same pattern that answers Part 3 of this take-home.
+`project-b/` and the dynamic path-filtering pipeline are supplementary content that demonstrates CircleCI's dynamic-config / path-filtering capability — the same pattern that answers Part 3 of this take-home.
 
 ## Prerequisites
 
